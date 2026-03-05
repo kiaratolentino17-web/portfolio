@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Portfolio</title>
+
+<!-- CSS -->
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+scroll-behavior:smooth;
+}
+
+/* NAVIGATION */
+
+nav{
+background:linear-gradient(to right,purple,pink);
+padding:15px;
+position:fixed;
+width:100%;
+top:0;
+box-shadow:0 3px 10px rgba(0,0,0,0.3);
+z-index:1000;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+justify-content:center;
+}
+
+nav ul li{
+margin:0 25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#ffe6ff;
+}
+
+/* SECTIONS */
+
+section{
+padding:120px 20px;
+min-height:100vh;
+}
+
+/* HOME */
+
+#home{
+background:linear-gradient(to right,#c471f5,#fa71cd);
+color:white;
+text-align:center;
+}
+
+#home img{
+margin-top:20px;
+border-radius:50%;
+border:5px solid white;
+}
+
+/* PROJECTS */
+
+#projects{
+background:#fdf0ff;
+text-align:center;
+}
+
+.project-box{
+width:300px;
+background:white;
+border-radius:15px;
+padding:15px;
+margin:15px;
+display:inline-block;
+vertical-align:top;
+box-shadow:0 5px 15px rgba(200,0,255,0.2);
+transition:0.3s;
+}
+
+.project-box:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px rgba(200,0,255,0.4);
+}
+
+.project-box img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+}
+
+.project-box h3{
+margin:10px 0;
+color:#b300b3;
+}
+
+/* ABOUT */
+
+#about{
+background:linear-gradient(to right,#fbc2eb,#a18cd1);
+text-align:center;
+color:white;
+}
+
+/* CONTACT */
+
+#contact{
+background:linear-gradient(to right,purple,pink);
+text-align:center;
+cursor:pointer;
+}
+
+#contact h2{
+color:#b300b3;
+}
+
+/* FOOTER */
+
+footer{
+background:#6a11cb;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+/* FULLSCREEN VIEWER */
+
+.viewer{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:5000;
+}
+
+.viewer img,
+.viewer video{
+max-width:90%;
+max-height:85%;
+border-radius:10px;
+}
+
+.close-viewer{
+position:absolute;
+top:25px;
+right:40px;
+font-size:35px;
+color:white;
+cursor:pointer;
+}
+</style>
+
+<!-- HTML -->
+</head>
+
+<body>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#projects">My Projects</a></li>
+<li><a href="#about">About Me</a></li>
+<li><a href="#contact">Contacts</a></li>
+</ul>
+</nav>
+
+<section id="home">
+<h1>Hello, I'm Marjorie Tolentino</h1>
+<p>Welcome to my portfolio. I'm a 2nd year student from Bachelor of Science in Computer Science in Nemsu-Lianga Campus</p>
+<img src="642073608_1268821588453986_4494156536433354656_n.jpg" width="250">
+</section>
+
+<section id="projects">
+
+<h2>My Projects</h2>
+
+<div class="project-box">
+<img src="ROBOT CAR.jfif" onclick="openViewer(this)">
+<h3>ESP32_CAM</h3>
+<p>An ESP32 robot camera connected to WiFi and controlled using a phone.</p>
+</div>
+
+<div class="project-box">
+<img src="OOP2.jfif" onclick="openViewer(this,'OOP.mp4')">
+<h3>Library Management System</h3>
+<p>A system that tracks students and borrowed books.</p>
+</div>
+
+<div class="project-box">
+<img src="PEARLAS.png" onclick="openViewer(this)">
+<h3>Beach and Hotel Website</h3>
+<p>A website that shows beach and hotel offers.</p>
+</div>
+
+<div class="project-box">
+<img src="CATALOG.png" onclick="openViewer(this)">
+<h3>Catalog</h3>
+<p>We edited a catalog of any lipstick brand and put their prices on it in our subject in multimedia to explore the basic design.</p>
+</div>
+
+<div class="project-box">
+<img src="DIORAMA.jfif" onclick="openViewer(this)">
+<h3>Diorama</h3>
+<p>A diorama that shows sustainable city and rural side.</p>
+</div>
+
+<div class="project-box">
+<img src="job sync.jfif" onclick="openViewer(this,'jobsync_pitch.mp4')">
+<h3>Job Sync</h3>
+<p>A business start up that automatically synchronize job data, tasks, or records across multiple systems to ensure consistency and accuracy.</p>
+</div>
+
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<p>As a 2nd year student, I am focused on learning and improving myself every day. I am still exploring different areas in my course, especially in programming and technology, and I am doing my best to understand the lessons step by step.</p>
+</section>
+
+<section id="contact">
+<h2>Contacts</h2>
+<p>Email: kiaratolentino17@gmail.com</p>
+<p>Phone: 09705342903</p>
+<p>Facebook: kiara</p>
+<p>Instagram: kyaaa_raa</p>
+</section>
+
+<footer>
+<p>© 2026 Marjorie Tolentino</p>
+</footer>
+
+<!-- FULLSCREEN VIEWER -->
+
+<div id="viewer" class="viewer">
+
+<span class="close-viewer" onclick="closeViewer()">✖</span>
+
+<img id="viewerImage">
+<video id="viewerVideo" controls></video>
+
+</div>
+<!-- Java script -->
+<script>
+
+function openViewer(img,videoSrc){
+
+const viewer=document.getElementById("viewer");
+const viewerImg=document.getElementById("viewerImage");
+const viewerVideo=document.getElementById("viewerVideo");
+
+viewer.style.display="flex";
+
+if(videoSrc){
+
+viewerImg.style.display="none";
+viewerVideo.style.display="block";
+viewerVideo.src=videoSrc;
+viewerVideo.play();
+
+}else{
+
+viewerVideo.style.display="none";
+viewerImg.style.display="block";
+viewerImg.src=img.src;
+
+}
+
+}
+
+function closeViewer(){
+
+const viewer=document.getElementById("viewer");
+const viewerVideo=document.getElementById("viewerVideo");
+
+viewer.style.display="none";
+viewerVideo.pause();
+viewerVideo.src="";
+
+}
+
+window.onclick=function(e){
+
+const viewer=document.getElementById("viewer");
+
+if(e.target===viewer){
+closeViewer();
+}
+
+}
+
+</script>
+
+</body>
+</html>
